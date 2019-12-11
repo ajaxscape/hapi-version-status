@@ -19,15 +19,15 @@ const register = function (server, opts = {}) {
       })
     })
     const started = moment(instance.started).format('DD/MM/YYYY HH:mm:ss')
-    const hash = { service }
+    const { hash } = service
     const commit = homepage.replace('#readme', `/commit/${hash}`)
     return { started, name, version, commit, hash }
   }
 
   const getServicesVersionStatus = async () => {
-    return Promise.all(serviceVersionPaths).map((path) => {
+    return Promise.all(serviceVersionPaths.map((path) => {
       return wreck.get(path)
-    })
+    }))
   }
 
   server.route({
