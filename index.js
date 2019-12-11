@@ -27,7 +27,7 @@ const register = function (server, opts = {}) {
   const getServicesVersionStatus = async () => {
     return Promise.all(serviceVersionPaths.map(async (path) => {
       const { payload } = await wreck.get(path, { json: true })
-      return payload
+      return payload.services
     }))
   }
 
@@ -37,12 +37,13 @@ const register = function (server, opts = {}) {
     handler: async (request, h) => {
       const versionStatus = await getVersionStatus()
       const otherServices = await getServicesVersionStatus()
+      const services = [versionStatus].concat(...otherServices)
+      const rendered = moment().format('DD/MM/YYYY HH:mm:ss')
+      const payload = { services, rendered, ...viewData }
       if (view) {
-        const services = [versionStatus, ...otherServices]
-        const renderTimestamp = moment().format('DD/MM/YYYY HH:mm:ss')
-        return h.view(view, { services, renderTimestamp, ...viewData })
+        return h.view(view, payload)
       } else {
-        return versionStatus
+        return payload
       }
     },
     options
