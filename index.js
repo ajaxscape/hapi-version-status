@@ -25,8 +25,9 @@ const register = function (server, opts = {}) {
   }
 
   const getServicesVersionStatus = async () => {
-    return Promise.all(serviceVersionPaths.map((path) => {
-      return wreck.get(path)
+    return Promise.all(serviceVersionPaths.map(async (path) => {
+      const { payload } = await wreck.get(path, { json: true })
+      return payload
     }))
   }
 
