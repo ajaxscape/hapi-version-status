@@ -1,0 +1,6 @@
+
+# IDE users
+.idea
+.vscode
+
+node_modules

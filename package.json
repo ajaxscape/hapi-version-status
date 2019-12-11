@@ -1,0 +1,38 @@
+{
+  "name": "hapi-version-status",
+  "version": "0.1.0",
+  "description": "Plugin that registers a route that returns version and status details of the server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaxscape/hapi-version-status.git"
+  },
+  "keywords": [
+    "hapi",
+    "version",
+    "status",
+    "route",
+    "plugin",
+    "hapi-plugin"
+  ],
+  "author": "Ben Surgison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajaxscape/hapi-version-status/issues"
+  },
+  "homepage": "https://github.com/ajaxscape/hapi-version-status#readme",
+  "devDependencies": {
+    "@hapi/code": "^7.0.0",
+    "@hapi/lab": "^21.0.0",
+    "codeclimate-test-reporter": "0.5.1",
+    "eslint": "^6.7.2",
+    "sinon": "^7.5.0",
+    "standard": "14.3.1"
+  },
+  "dependencies": {
+    "git-last-commit": "^1.0.0"
+  }
+}
