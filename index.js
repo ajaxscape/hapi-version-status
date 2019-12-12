@@ -55,6 +55,5 @@ const pkg = require('./package')
 exports.plugin = {
   name: pkg.name,
   register,
-  once: true,
   pkg
 }

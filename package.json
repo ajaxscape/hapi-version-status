@@ -1,6 +1,6 @@
 {
   "name": "hapi-version-status",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Plugin that registers a route that returns version and status details of the server",
   "main": "index.js",
   "scripts": {
